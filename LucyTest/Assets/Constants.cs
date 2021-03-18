@@ -9,4 +9,14 @@ public class  Constants : MonoBehaviour
         Lucy,
         Jacob
     };    
+
+    public enum StoryTrigger
+    {
+        ST0,
+        ST1,
+        ST2,
+        ST3,
+        ST4,
+        ST5
+    }
 }

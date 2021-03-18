@@ -6,6 +6,8 @@ public class ButtonManager : MonoBehaviour
 {
 
     public StoryManager storyManager = null;
+    public ChatMenuManager chatMenu = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class ButtonManager : MonoBehaviour
         {
             if (chat.name == this.name)
             {
+                chatMenu.WhiteChatButton(this.name);
                 chat.transform.GetChild(0).gameObject.SetActive(true);
             }
             else

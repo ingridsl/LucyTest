@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public StoryBlock waitingStoryBlock = null;
+    public Constants.StoryTrigger? waitingTrigger = null;
+    public Constants.Character? waitingCharacter = null;
+    public bool hasWaitingTrigger = false;
+
+    public Constants.StoryTrigger? currentTrigger = null;
+
     // Start is called before the first frame update
     void Start()
     {
