@@ -41,14 +41,8 @@ public class StoryManager : MonoBehaviour
 
     void CheckTriggers(Constants.StoryTrigger? receivedTrigger)
     {
-        if (receivedTrigger == gameManager.waitingTrigger && receivedTrigger != null)
-        {
+        if (receivedTrigger != null) {
             gameManager.currentTrigger = receivedTrigger;
-            //FillStoryAndButtons(gameManager.waitingStoryBlock, (Constants.Character)gameManager.waitingCharacter);
-            //gameManager.waitingStoryBlock = null;
-            //gameManager.waitingTrigger = null;
-            //gameManager.waitingCharacter = null;
-            //gameManager.hasWaitingTrigger = false;
         }
     }
 
@@ -60,32 +54,20 @@ public class StoryManager : MonoBehaviour
         }
         else if(storyBlock.storyTriggerRequested == gameManager.currentTrigger)
         {
-            gameManager.hasWaitingTrigger = false;
-            gameManager.waitingTrigger = null;
             FillStoryAndButtonsWOTrigger(storyBlock, chatChar);
         }else if (storyBlock.storyTriggerRequested != gameManager.currentTrigger)
-        {
-
-            gameManager.hasWaitingTrigger = true;
-            gameManager.waitingTrigger = storyBlock.storyTriggerRequested;
-            gameManager.waitingCharacter = chatChar;
-            gameManager.waitingStoryBlock = storyBlock;
-
-            StartCoroutine(WaitForTrigger(storyBlock));
+        {   
+            StartCoroutine(WaitForTrigger(storyBlock, chatChar));
         }
     }
 
-    IEnumerator WaitForTrigger(StoryBlock storyBlock)
+    IEnumerator WaitForTrigger(StoryBlock storyBlock, Constants.Character chatChar)
     {
         while (storyBlock.storyTriggerRequested != gameManager.currentTrigger)
         {
             yield return new WaitForSeconds(0.5f);
         }
-        FillStoryAndButtons(gameManager.waitingStoryBlock, (Constants.Character)gameManager.waitingCharacter);
-        gameManager.waitingStoryBlock = null;
-        gameManager.waitingTrigger = null;
-        gameManager.waitingCharacter = null;
-        gameManager.hasWaitingTrigger = false;
+        FillStoryAndButtons(storyBlock, chatChar);
     }
 
     void FillStoryAndButtonsWOTrigger(StoryBlock storyBlock, Constants.Character chatChar)

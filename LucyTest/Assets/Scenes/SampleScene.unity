@@ -490,6 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 0}
+  chatMenu: {fileID: 1281818277}
 --- !u!114 &516940407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,9 +512,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.7122642, g: 1, b: 0.90602165, a: 1}
+    m_PressedColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+    m_SelectedColor: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -697,6 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCharacter: 0
   gameManager: {fileID: 915204792}
+  chatMenu: {fileID: 1281818277}
 --- !u!1 &592717444
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 627450438}
+  chatMenu: {fileID: 0}
 --- !u!114 &592717447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,6 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCharacter: 1
   gameManager: {fileID: 915204792}
+  chatMenu: {fileID: 1281818277}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 585030101}
+  chatMenu: {fileID: 0}
 --- !u!1 &885394987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,6 +1332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 627450438}
+  chatMenu: {fileID: 0}
 --- !u!114 &885394990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1603,6 +1609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCharacter: 1
   gameManager: {fileID: 0}
+  chatMenu: {fileID: 0}
 --- !u!114 &999498134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,6 +1897,7 @@ GameObject:
   - component: {fileID: 1281818275}
   - component: {fileID: 1281818274}
   - component: {fileID: 1281818273}
+  - component: {fileID: 1281818277}
   m_Layer: 5
   m_Name: TOPMENU
   m_TagString: Untagged
@@ -1977,6 +1985,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1281818277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281818272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5dd75868482c754cb0b53f2e9df936e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedChat: 0
 --- !u!1 &1322590216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,6 +2237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisCharacter: 0
   gameManager: {fileID: 0}
+  chatMenu: {fileID: 0}
 --- !u!1 &1436709437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 585030101}
+  chatMenu: {fileID: 0}
 --- !u!1 &1491543727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 627450438}
+  chatMenu: {fileID: 0}
 --- !u!114 &1491543730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2640,6 +2664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 0}
+  chatMenu: {fileID: 1281818277}
 --- !u!114 &1732067423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2958,3 +2983,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyManager: {fileID: 585030101}
+  chatMenu: {fileID: 0}
