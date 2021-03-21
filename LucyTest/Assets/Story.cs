@@ -9,7 +9,7 @@ public class StoryBlock
     public Constants.StoryTrigger? storyTriggerRequested;
 
     public string userSelectedText;
-    public string lucyText;
+    public string pcText;
 
     public string c1_optionText;
     public StoryBlock c1;
@@ -110,7 +110,7 @@ public class Story
     {        
         StoryBlock node = new StoryBlock();
         node.userSelectedText = userSelectedText;
-        node.lucyText = lucyReplyText;
+        node.pcText = lucyReplyText;
 
         node.c1_optionText = c1_optionText;
         node.c2_optionText = c2_optionText;

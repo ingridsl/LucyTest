@@ -7,11 +7,19 @@ public class StoryManager : MonoBehaviour
 {
     public Story storyLucy;
     public Story storyJacob;
-    
+
     public Constants.Character thisCharacter;
 
     public GameManager gameManager;
     public ChatMenuManager chatMenu = null;
+
+    public GameObject chatGrid;
+    public GameObject c1;
+    public GameObject c2;
+    public GameObject c3;
+
+    public GameObject chatPCPrefab;
+    public GameObject chatPlayerPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +49,8 @@ public class StoryManager : MonoBehaviour
 
     void CheckTriggers(Constants.StoryTrigger? receivedTrigger)
     {
-        if (receivedTrigger != null) {
+        if (receivedTrigger != null)
+        {
             gameManager.currentTrigger = receivedTrigger;
         }
     }
@@ -52,11 +61,12 @@ public class StoryManager : MonoBehaviour
         {
             FillStoryAndButtonsWOTrigger(storyBlock, chatChar);
         }
-        else if(storyBlock.storyTriggerRequested == gameManager.currentTrigger)
+        else if (storyBlock.storyTriggerRequested == gameManager.currentTrigger)
         {
             FillStoryAndButtonsWOTrigger(storyBlock, chatChar);
-        }else if (storyBlock.storyTriggerRequested != gameManager.currentTrigger)
-        {   
+        }
+        else if (storyBlock.storyTriggerRequested != gameManager.currentTrigger)
+        {
             StartCoroutine(WaitForTrigger(storyBlock, chatChar));
         }
     }
@@ -72,33 +82,24 @@ public class StoryManager : MonoBehaviour
 
     void FillStoryAndButtonsWOTrigger(StoryBlock storyBlock, Constants.Character chatChar)
     {
-        foreach (Transform child in this.transform.GetChild(0).transform)
+        chatMenu.HighlightChatButton(chatChar);
+
+        if (storyBlock.userSelectedText.Length > 0)
         {
-            chatMenu.HighlightChatButton(chatChar);
-            if (child.name == "Text")
-            {
-                if (storyBlock.userSelectedText.Length > 0)
-                {
-                    child.gameObject.transform.GetComponent<Text>().text += "Frost: " + storyBlock.userSelectedText + '\n';
-                }
-                child.gameObject.transform.GetComponent<Text>().text += chatChar.ToString() + ": " + storyBlock.lucyText + '\n';
-            }
-            else
-            {
-                if (child.name == "C1")
-                {
-                    child.gameObject.GetComponentInChildren<Text>().text = storyBlock.c1_optionText;
-                }
-                else if (child.name == "C2")
-                {
-                    child.gameObject.GetComponentInChildren<Text>().text = storyBlock.c2_optionText;
-                }
-                else if (child.name == "C3")
-                {
-                    child.gameObject.GetComponentInChildren<Text>().text = storyBlock.c3_optionText;
-                }
-            }
+
+            var chatPlayer = Instantiate(chatPlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            chatPlayer.transform.parent = chatGrid.transform;
+            chatPlayer.transform.GetChild(0).gameObject.transform.GetComponent<Text>().text = "Frost: " + storyBlock.userSelectedText + '\n';
         }
+        if (storyBlock.pcText.Length > 0)
+        {
+            var chatPC = Instantiate(chatPCPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            chatPC.transform.parent = chatGrid.transform;
+            chatPC.transform.GetChild(0).gameObject.transform.GetComponent<Text>().text = chatChar.ToString() + ": " + storyBlock.pcText + '\n';
+        }
+        c1.GetComponentInChildren<Text>().text = storyBlock.c1_optionText;
+        c2.GetComponentInChildren<Text>().text = storyBlock.c2_optionText;
+        c3.GetComponentInChildren<Text>().text = storyBlock.c3_optionText;
     }
 
     public string CharacterName(Constants.Character chatChar)
