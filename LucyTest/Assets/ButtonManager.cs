@@ -19,6 +19,11 @@ public class ButtonManager : MonoBehaviour
     {
         
     }
+    public void OpenContactsPage()
+    {
+        chatMenu.transform.GetChild(0).gameObject.SetActive(true);
+        storyManager.transform.GetChild(0).gameObject.SetActive(false);
+    }
 
     public void OpenChat()
     {
