@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Chat
   - RedCircle
+  - BlueCircle
   layers:
   - Default
   - TransparentFX
