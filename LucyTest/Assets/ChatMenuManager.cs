@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ChatMenuManager : MonoBehaviour
 {
     public Constants.Character selectedChat = Constants.Character.Lucy;
+
+    public GameManager gameManager;
     //FFFFFF normal color
     //09FF00 highlight color
 
@@ -24,13 +26,24 @@ public class ChatMenuManager : MonoBehaviour
     public void HighlightChatButton(Constants.Character chatChar)
     {
         if (chatChar != selectedChat) {
-            foreach (Transform child in this.transform.GetChild(0).transform)
+
+            var backButtons = GameObject.FindGameObjectsWithTag("RedCircle");
+            foreach (GameObject backButton in backButtons)
             {
-                if (child.name == chatChar.ToString().ToUpper())
+                var redCircle = backButton.transform.GetChild(0).gameObject;
+                if (redCircle.GetComponent<RedCircle>().thisCharacter == selectedChat)
                 {
-                    child.GetComponent<Image>().color = new Color(0, 255, 0);
+                    gameManager.AddNonReadMessage(redCircle);
                 }
             }
+
+            //foreach (Transform child in this.transform.GetChild(0).transform)
+            //{
+            //    if (child.name == chatChar.ToString().ToUpper())
+            //    {
+            //        child.GetComponent<Image>().color = new Color(0, 255, 0);
+            //    }
+            //}
         }
     }
 
@@ -51,12 +64,12 @@ public class ChatMenuManager : MonoBehaviour
         var chatChar = GetChatChar(name);
         selectedChat = chatChar;
 
-        foreach (Transform child in this.transform.GetChild(0).transform)
-        {
-            if (child.name.ToUpper() == chatChar.ToString().ToUpper())
-            {
-                child.GetComponent<Image>().color = new Color(255, 255, 255);
-            }
-        }
+        //foreach (Transform child in this.transform.GetChild(0).transform)
+        //{
+        //    if (child.name.ToUpper() == chatChar.ToString().ToUpper())
+        //    {
+        //        child.GetComponent<Image>().color = new Color(255, 255, 255);
+        //    }
+        //}
     }
 }

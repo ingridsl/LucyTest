@@ -21,6 +21,8 @@ public class StoryManager : MonoBehaviour
     public GameObject chatPCPrefab;
     public GameObject chatPlayerPrefab;
 
+    public GameObject redCircle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,12 +79,15 @@ public class StoryManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
         }
+        
         FillStoryAndButtons(storyBlock, chatChar);
     }
+
 
     void FillStoryAndButtonsWOTrigger(StoryBlock storyBlock, Constants.Character chatChar)
     {
         chatMenu.HighlightChatButton(chatChar);
+        //gameManager.RemoveNonReadMessage(redCircle);
 
         if (storyBlock.userSelectedText.Length > 0)
         {
