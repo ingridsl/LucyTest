@@ -25,9 +25,9 @@ public class ButtonManager : MonoBehaviour
         var chats = GameObject.FindGameObjectsWithTag("Chat");
         foreach (var chat in chats)
         {
-            if (chat.name == this.name)
+            if (chat.name.ToUpper() == this.name.ToUpper())
             {
-                chatMenu.WhiteChatButton(this.name);
+                //chatMenu.WhiteChatButton(this.name);
                 chat.transform.GetChild(0).gameObject.SetActive(true);
             }
             else
@@ -35,6 +35,7 @@ public class ButtonManager : MonoBehaviour
                 chat.transform.GetChild(0).gameObject.SetActive(false);
             }
         }
+        chatMenu.transform.GetChild(0).gameObject.SetActive(false);
     }
 
 

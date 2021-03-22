@@ -1977,7 +1977,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2535654972526154076, guid: 4034d126936f506439ce244c2d472d0a, type: 3}
       propertyPath: m_Name
-      value: SingleContact
+      value: Lucy
       objectReference: {fileID: 0}
     - target: {fileID: 2535654972526154080, guid: 4034d126936f506439ce244c2d472d0a, type: 3}
       propertyPath: m_TargetGraphic
