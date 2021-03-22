@@ -94,17 +94,36 @@ public class StoryManager : MonoBehaviour
 
             var chatPlayer = Instantiate(chatPlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             chatPlayer.transform.parent = chatGrid.transform;
-            chatPlayer.transform.GetChild(0).gameObject.transform.GetComponent<Text>().text = "Frost: " + storyBlock.userSelectedText + '\n';
+
+            var chatLine = "Frost: " + storyBlock.userSelectedText;
+            chatPlayer.transform.GetComponent<Text>().text = chatLine + '\n';
+            chatPlayer.transform.GetChild(1).gameObject.transform.GetComponent<Text>().text = chatLine;
+
+            StartCoroutine(DelayedRebuild(chatPlayer));
         }
         if (storyBlock.pcText.Length > 0)
         {
             var chatPC = Instantiate(chatPCPrefab, new Vector3(0, 0, 0), Quaternion.identity);
             chatPC.transform.parent = chatGrid.transform;
-            chatPC.transform.GetChild(0).gameObject.transform.GetComponent<Text>().text = chatChar.ToString() + ": " + storyBlock.pcText + '\n';
+
+            var chatLine = chatChar.ToString() + ": " + storyBlock.pcText;
+            chatPC.transform.GetComponent<Text>().text = chatLine + '\n';
+            chatPC.transform.GetChild(1).gameObject.transform.GetComponent<Text>().text = chatLine;
+
+            StartCoroutine(DelayedRebuild(chatPC));
         }
         c1.GetComponentInChildren<Text>().text = storyBlock.c1_optionText;
         c2.GetComponentInChildren<Text>().text = storyBlock.c2_optionText;
         c3.GetComponentInChildren<Text>().text = storyBlock.c3_optionText;
+
+    }
+
+    IEnumerator DelayedRebuild(GameObject chat)
+    {
+        yield return new WaitForSeconds(0.01f);
+        chat.SetActive(false);
+        yield return new WaitForSeconds(0.01f);
+        chat.SetActive(true);
     }
 
     public string CharacterName(Constants.Character chatChar)
