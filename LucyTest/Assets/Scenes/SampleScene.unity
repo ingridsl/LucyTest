@@ -700,10 +700,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1353725515311806540, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1353725515415168716, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: chatMenu
       value: 
       objectReference: {fileID: 1281818277}
+    - target: {fileID: 1353725515415168719, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1353725515415168720, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
@@ -720,10 +728,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -28.705688
       objectReference: {fileID: 0}
+    - target: {fileID: 1353725515855751814, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1353725515993403037, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: chatMenu
       value: 
       objectReference: {fileID: 1281818277}
+    - target: {fileID: 1353725515993403104, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1353725515993403105, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
@@ -860,6 +876,10 @@ PrefabInstance:
       propertyPath: chatMenu
       value: 
       objectReference: {fileID: 1281818277}
+    - target: {fileID: 1353725516553192667, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1353725516553192668, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
@@ -879,6 +899,10 @@ PrefabInstance:
     - target: {fileID: 1353725516930954336, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: m_SizeDelta.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1353725517166385179, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3623159495748585762, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: chatMenu
@@ -1226,7 +1250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6806291f6b80d4e4690a290a076a9ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nonReadMessages: 1
 --- !u!4 &915204793
 Transform:
   m_ObjectHideFlags: 0
