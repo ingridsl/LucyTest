@@ -77,7 +77,7 @@ public class ChatMenuManager : MonoBehaviour
                 {
                     if (child.name == "BlueCircle")
                     {
-                        return child.gameObject;
+                        return child.GetChild(0).gameObject;
                     }
                 }
             }

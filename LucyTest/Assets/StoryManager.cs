@@ -216,4 +216,18 @@ public class StoryManager : MonoBehaviour
         CheckTriggers(story.currentNode.storyTriggerActivated);
         FillStoryAndButtons(story.currentNode, chatChar);
     }
+
+    public GameObject GetRedCircle()
+    {
+        var panel = this.transform.GetChild(0);
+        foreach (Transform area in panel)
+        {
+            if (area.name == "TopLabel")
+            {
+                var backButton = area.GetChild(0);
+                return backButton.GetChild(0).gameObject;
+            }
+        }
+        return null;
+    }
 }

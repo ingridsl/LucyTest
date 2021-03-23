@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public Constants.StoryTrigger? currentTrigger = null;
 
-    public int nonRedMessages = 0;
+    [System.NonSerialized] public int nonReadMessages = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -24,37 +24,35 @@ public class GameManager : MonoBehaviour
 
     public void AddNonReadMessage(GameObject redCircle)
     {
-        nonRedMessages++;
+        nonReadMessages++;
         if (redCircle.activeSelf)
         {
-            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonRedMessages.ToString();
+            if (nonReadMessages > 0 ) {
+                redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
+            }
+            else
+            {
+                redCircle.SetActive(false);
+            }
         }
         else
         {
             redCircle.SetActive(true);
-            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonRedMessages.ToString();
+            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
         }
     }
 
-    public void RemoveNonReadMessage(GameObject redCircle)
+    public void RemoveNonReadMessage()
     {
-        nonRedMessages--;
-        if (nonRedMessages != 0)
-        {
-            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonRedMessages.ToString();
-        }
-        else
-        {
-            redCircle.SetActive(false);
-            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonRedMessages.ToString();
-        }
+        nonReadMessages = nonReadMessages == 0 ? nonReadMessages : nonReadMessages - 1;
     }
 
     public void SetNonReadMessage(GameObject redCircle)
     {
-        if (nonRedMessages != 0)
+        if (nonReadMessages > 0)
         {
             redCircle.SetActive(true);
+            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
         }
         else
         {

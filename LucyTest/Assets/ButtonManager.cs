@@ -7,6 +7,7 @@ public class ButtonManager : MonoBehaviour
 
     public StoryManager storyManager = null;
     public ChatMenuManager chatMenu = null;
+    public GameManager gameManager = null;
 
     // Start is called before the first frame update
     void Start()
@@ -33,13 +34,23 @@ public class ButtonManager : MonoBehaviour
             if (chat.name.ToUpper() == this.name.ToUpper())
             {
                 //chatMenu.WhiteChatButton(this.name);
-                var blueCircle = chatMenu.GetBlueCircle(chat.name);
-                blueCircle.transform.GetChild(0).gameObject.SetActive(false);
-
+                //open personal chat page
                 var chatChar = chatMenu.GetChatChar(chat.name);
                 chatMenu.selectedChat = chatChar;
-
                 chat.transform.GetChild(0).gameObject.SetActive(true);
+
+                //non read message blue circle in contact list
+                var blueCircle = chatMenu.GetBlueCircle(chat.name);
+                if (blueCircle!= null && blueCircle.activeSelf)
+                {
+                    gameManager.RemoveNonReadMessage();
+                }
+                blueCircle.gameObject.SetActive(false);
+
+                //non read message red circle in personal chat page
+                var storyManager = chat.GetComponent<StoryManager>();
+                var redCircle = storyManager.GetRedCircle();
+                gameManager.SetNonReadMessage(redCircle);
             }
             else
             {

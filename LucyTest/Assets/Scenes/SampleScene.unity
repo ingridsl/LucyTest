@@ -526,6 +526,10 @@ PrefabInstance:
       propertyPath: chatMenu
       value: 
       objectReference: {fileID: 1281818277}
+    - target: {fileID: 7683593346721622637, guid: 4034d126936f506439ce244c2d472d0a, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 915204792}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4034d126936f506439ce244c2d472d0a, type: 3}
 --- !u!224 &477016347 stripped
@@ -1222,7 +1226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6806291f6b80d4e4690a290a076a9ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nonRedMessages: 0
+  nonReadMessages: 1
 --- !u!4 &915204793
 Transform:
   m_ObjectHideFlags: 0
@@ -2415,5 +2419,9 @@ PrefabInstance:
       propertyPath: chatMenu
       value: 
       objectReference: {fileID: 1281818277}
+    - target: {fileID: 7683593346721622637, guid: 4034d126936f506439ce244c2d472d0a, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 915204792}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4034d126936f506439ce244c2d472d0a, type: 3}

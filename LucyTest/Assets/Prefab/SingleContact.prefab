@@ -409,7 +409,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 2535654972526154082}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -477,6 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyManager: {fileID: 0}
   chatMenu: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &2535654972586992085
 GameObject:
   m_ObjectHideFlags: 0
