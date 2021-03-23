@@ -33,6 +33,12 @@ public class ButtonManager : MonoBehaviour
             if (chat.name.ToUpper() == this.name.ToUpper())
             {
                 //chatMenu.WhiteChatButton(this.name);
+                var blueCircle = chatMenu.GetBlueCircle(chat.name);
+                blueCircle.transform.GetChild(0).gameObject.SetActive(false);
+
+                var chatChar = chatMenu.GetChatChar(chat.name);
+                chatMenu.selectedChat = chatChar;
+
                 chat.transform.GetChild(0).gameObject.SetActive(true);
             }
             else

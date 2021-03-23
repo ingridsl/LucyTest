@@ -132,7 +132,10 @@ public class StoryManager : MonoBehaviour
                         var previewText = text.Length >= 36 ? text.Substring(0, 36) + "..." : text;
                         child.GetComponent<Text>().text = previewText;
                     }
-
+                    else if (child.name == "BlueCircle" && chatMenu.selectedChat != thisCharacter)
+                    {
+                        child.transform.GetChild(0).gameObject.SetActive(true);
+                    }
                 }
             }
         }
@@ -144,7 +147,7 @@ public class StoryManager : MonoBehaviour
         chat.transform.parent = chatGrid.transform;
 
         var chatLine = speakerName.ToString() + ": " + storyBlock.pcText;
-        chat.transform.GetComponent<Text>().text = chatLine + '\n';
+        chat.transform.GetComponent<Text>().text = chatLine + '\n' + '\n';
         chat.transform.GetChild(1).gameObject.transform.GetComponent<Text>().text = chatLine;
 
         if (isPC)

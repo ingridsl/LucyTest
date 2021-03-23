@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChatMenuManager : MonoBehaviour
 {
-    public Constants.Character selectedChat = Constants.Character.Lucy;
+    public Constants.Character? selectedChat = null;
 
     public GameManager gameManager;
     //FFFFFF normal color
@@ -63,5 +63,25 @@ public class ChatMenuManager : MonoBehaviour
         //        child.GetComponent<Image>().color = new Color(255, 255, 255);
         //    }
         //}
+    }
+
+    public GameObject GetBlueCircle(string character)
+    {
+        var panel = this.transform.GetChild(0);
+        var contactPanel = panel.transform.GetChild(0).GetChild(0);
+        foreach (Transform contact in contactPanel.GetChild(0))
+        {
+            if (contact.name.ToUpper() == character.ToString().ToUpper())
+            {
+                foreach (Transform child in contact)
+                {
+                    if (child.name == "BlueCircle")
+                    {
+                        return child.gameObject;
+                    }
+                }
+            }
+        }
+        return null;
     }
 }
