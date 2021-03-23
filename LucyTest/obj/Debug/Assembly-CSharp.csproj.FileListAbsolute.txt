@@ -550,3 +550,5 @@ C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\obj\Debug\Assembly-CSharp
 C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\obj\Debug\Assembly-CSharp.dll
 C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\obj\Debug\Assembly-CSharp.pdb
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.2D.Sprite.Editor.dll
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.2D.Sprite.Editor.pdb

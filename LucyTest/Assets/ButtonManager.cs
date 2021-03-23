@@ -52,11 +52,11 @@ public class ButtonManager : MonoBehaviour
 
     Constants.Character FindCharacter(Transform pressedButton)
     {
-        if (pressedButton.parent.transform.parent.name == "LUCY")
+        if (pressedButton.parent.transform.parent.transform.parent.name == "LUCY")
         {
             return Constants.Character.Lucy;
         }
-        else if (pressedButton.parent.transform.parent.name == "JACOB")
+        else if (pressedButton.parent.transform.parent.transform.parent.name == "JACOB")
         {
             return Constants.Character.Jacob;
         }

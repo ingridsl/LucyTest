@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1353725515415168716, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: chatMenu
+      value: 
+      objectReference: {fileID: 1281818277}
     - target: {fileID: 1353725515415168720, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
@@ -712,6 +716,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -28.705688
       objectReference: {fileID: 0}
+    - target: {fileID: 1353725515993403037, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: chatMenu
+      value: 
+      objectReference: {fileID: 1281818277}
     - target: {fileID: 1353725515993403105, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
@@ -844,6 +852,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1353725516553192664, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
+      propertyPath: chatMenu
+      value: 
+      objectReference: {fileID: 1281818277}
     - target: {fileID: 1353725516553192668, guid: bae853af65a4abe42a3a90d8b4ca6872, type: 3}
       propertyPath: m_AnchorMin.y
       value: 1
