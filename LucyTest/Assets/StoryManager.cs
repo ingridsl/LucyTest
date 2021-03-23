@@ -83,7 +83,6 @@ public class StoryManager : MonoBehaviour
         FillStoryAndButtons(storyBlock, chatChar);
     }
 
-
     void FillStoryAndButtonsWOTrigger(StoryBlock storyBlock, Constants.Character chatChar)
     {
         chatMenu.HighlightChatButton(chatChar);
@@ -91,31 +90,69 @@ public class StoryManager : MonoBehaviour
 
         if (storyBlock.userSelectedText.Length > 0)
         {
-
-            var chatPlayer = Instantiate(chatPlayerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            chatPlayer.transform.parent = chatGrid.transform;
-
-            var chatLine = "Frost: " + storyBlock.userSelectedText;
-            chatPlayer.transform.GetComponent<Text>().text = chatLine + '\n';
-            chatPlayer.transform.GetChild(1).gameObject.transform.GetComponent<Text>().text = chatLine;
-
-            StartCoroutine(DelayedRebuild(chatPlayer));
+            ChatBallon(storyBlock, chatPlayerPrefab, "Frost");
         }
         if (storyBlock.pcText.Length > 0)
         {
-            var chatPC = Instantiate(chatPCPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            chatPC.transform.parent = chatGrid.transform;
-
-            var chatLine = chatChar.ToString() + ": " + storyBlock.pcText;
-            chatPC.transform.GetComponent<Text>().text = chatLine + '\n';
-            chatPC.transform.GetChild(1).gameObject.transform.GetComponent<Text>().text = chatLine;
-
-            StartCoroutine(DelayedRebuild(chatPC));
+            ChatBallon(storyBlock, chatPCPrefab, chatChar.ToString(), true);
         }
-        c1.GetComponentInChildren<Text>().text = storyBlock.c1_optionText;
-        c2.GetComponentInChildren<Text>().text = storyBlock.c2_optionText;
-        c3.GetComponentInChildren<Text>().text = storyBlock.c3_optionText;
 
+        BuildChoiseButton(c1, storyBlock.c1_optionText);
+        BuildChoiseButton(c2, storyBlock.c2_optionText);
+        BuildChoiseButton(c3, storyBlock.c3_optionText);
+    }
+    
+    void BuildChoiseButton(GameObject button, string text)
+    {
+        if (text.Length > 0)
+        {
+            button.GetComponent<Button>().interactable = true;
+            button.GetComponentInChildren<Text>().text = text;
+        }
+        else
+        {
+            button.GetComponent<Button>().interactable = false;
+            button.GetComponentInChildren<Text>().text = "";
+        }
+    }
+
+    void PreviewText(string text)
+    {
+        // panel -> contactPanel -> contactPanel(1) -> gridImage -> Lucy, Jacob...
+        var panel = chatMenu.transform.GetChild(0);
+        var contactPanel = panel.transform.GetChild(0).GetChild(0);
+        foreach (Transform contact in contactPanel.GetChild(0))
+        {
+            if (contact.name == thisCharacter.ToString())
+            {
+                foreach (Transform child in contact)
+                {
+                    if(child.name == "TextPreview")
+                    {
+                        var previewText = text.Length >= 36 ? text.Substring(0, 36) + "..." : text;
+                        child.GetComponent<Text>().text = previewText;
+                    }
+
+                }
+            }
+        }
+    }
+
+    void ChatBallon(StoryBlock storyBlock, GameObject prefab, string speakerName, bool isPC = false)
+    {
+        var chat = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
+        chat.transform.parent = chatGrid.transform;
+
+        var chatLine = speakerName.ToString() + ": " + storyBlock.pcText;
+        chat.transform.GetComponent<Text>().text = chatLine + '\n';
+        chat.transform.GetChild(1).gameObject.transform.GetComponent<Text>().text = chatLine;
+
+        if (isPC)
+        {
+            PreviewText(storyBlock.pcText);
+        }
+
+        StartCoroutine(DelayedRebuild(chat));
     }
 
     IEnumerator DelayedRebuild(GameObject chat)

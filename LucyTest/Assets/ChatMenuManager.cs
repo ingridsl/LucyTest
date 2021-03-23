@@ -36,14 +36,6 @@ public class ChatMenuManager : MonoBehaviour
                     gameManager.AddNonReadMessage(redCircle);
                 }
             }
-
-            //foreach (Transform child in this.transform.GetChild(0).transform)
-            //{
-            //    if (child.name == chatChar.ToString().ToUpper())
-            //    {
-            //        child.GetComponent<Image>().color = new Color(0, 255, 0);
-            //    }
-            //}
         }
     }
 
