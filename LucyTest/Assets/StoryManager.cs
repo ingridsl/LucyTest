@@ -61,11 +61,11 @@ public class StoryManager : MonoBehaviour
     {
         if (storyBlock.storyTriggerRequested == null)
         {
-            FillStoryAndButtonsWOTrigger(storyBlock, chatChar);
+            StartCoroutine(FillStoryAndButtonsWOTrigger(storyBlock, chatChar));
         }
         else if (storyBlock.storyTriggerRequested == gameManager.currentTrigger)
         {
-            FillStoryAndButtonsWOTrigger(storyBlock, chatChar);
+            StartCoroutine(FillStoryAndButtonsWOTrigger(storyBlock, chatChar));
         }
         else if (storyBlock.storyTriggerRequested != gameManager.currentTrigger)
         {
@@ -79,29 +79,31 @@ public class StoryManager : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
         }
-        
+
         FillStoryAndButtons(storyBlock, chatChar);
     }
 
-    void FillStoryAndButtonsWOTrigger(StoryBlock storyBlock, Constants.Character chatChar)
+    IEnumerator FillStoryAndButtonsWOTrigger(StoryBlock storyBlock, Constants.Character chatChar)
     {
         chatMenu.HighlightChatButton(chatChar);
         //gameManager.RemoveNonReadMessage(redCircle);
 
         if (storyBlock.userSelectedText.Length > 0)
         {
-            ChatBallon(storyBlock, chatPlayerPrefab, "Frost");
+            StartCoroutine(ChatBalloon(storyBlock, chatPlayerPrefab, "Frost"));
+            yield return new WaitForSeconds(1);
         }
         if (storyBlock.pcText.Length > 0)
         {
-            ChatBallon(storyBlock, chatPCPrefab, chatChar.ToString(), true);
+            StartCoroutine(ChatBalloon(storyBlock, chatPCPrefab, chatChar.ToString(), true));
+            yield return new WaitForSeconds(1);
         }
 
         BuildChoiseButton(c1, storyBlock.c1_optionText);
         BuildChoiseButton(c2, storyBlock.c2_optionText);
         BuildChoiseButton(c3, storyBlock.c3_optionText);
     }
-    
+
     void BuildChoiseButton(GameObject button, string text)
     {
         if (text.Length > 0)
@@ -127,7 +129,7 @@ public class StoryManager : MonoBehaviour
             {
                 foreach (Transform child in contact)
                 {
-                    if(child.name == "TextPreview")
+                    if (child.name == "TextPreview")
                     {
                         var previewText = text.Length >= 36 ? text.Substring(0, 36) + "..." : text;
                         child.GetComponent<Text>().text = previewText;
@@ -141,8 +143,18 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    void ChatBallon(StoryBlock storyBlock, GameObject prefab, string speakerName, bool isPC = false)
+    void InteractChoiseButton(GameObject button, bool interactable)
     {
+        button.GetComponent<Button>().interactable = interactable;
+        if (!interactable)
+        {
+            button.GetComponentInChildren<Text>().text = "";
+        }
+    }
+
+    IEnumerator ChatBalloon(StoryBlock storyBlock, GameObject prefab, string speakerName, bool isPC = false)
+    {
+
         var chat = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         chat.transform.parent = chatGrid.transform;
 
@@ -154,8 +166,17 @@ public class StoryManager : MonoBehaviour
         {
             PreviewText(storyBlock.pcText);
         }
-
         StartCoroutine(DelayedRebuild(chat));
+
+        InteractChoiseButton(c1, false);
+        InteractChoiseButton(c2, false);
+        InteractChoiseButton(c3, false);
+
+        yield return new WaitForSeconds(1.5f);
+
+        InteractChoiseButton(c1, true);
+        InteractChoiseButton(c2, true);
+        InteractChoiseButton(c3, true);
     }
 
     IEnumerator DelayedRebuild(GameObject chat)

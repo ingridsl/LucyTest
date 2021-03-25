@@ -654,6 +654,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -667,10 +668,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: a432ead1-d0b0-4e22-96c1-0bdcc0b90ee5
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: LucyTest
+  organizationId: ingridsl
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
