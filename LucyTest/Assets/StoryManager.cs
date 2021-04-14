@@ -132,7 +132,7 @@ public class StoryManager : MonoBehaviour
                     if (child.name == "TextPreview")
                     {
                         var previewText = text.Length >= 36 ? text.Substring(0, 36) + "..." : text;
-                        child.GetComponent<Text>().text = previewText;
+                        child.GetComponent<TextMesh>().text = previewText;
                     }
                     else if (child.name == "BlueCircle" && chatMenu.selectedChat != thisCharacter)
                     {
