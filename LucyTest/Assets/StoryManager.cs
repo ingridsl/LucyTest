@@ -161,10 +161,11 @@ public class StoryManager : MonoBehaviour
         var chat = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         chat.transform.parent = chatGrid.transform;
 
+        yield return 0;
 
         var chatLine = speakerName.ToString() + ": " + storyBlock.pcText;
-        chat.gameObject.GetComponent<Text>().text = chatLine + '\n' + '\n';
-        chat.transform.GetChild(1).gameObject.gameObject.GetComponent<Text>().text = chatLine;
+        chat.gameObject.GetComponent<TextMeshProUGUI>().text = chatLine + '\n' + '\n';
+        chat.transform.GetChild(1).gameObject.gameObject.GetComponent<TextMeshProUGUI>().text = chatLine;
 
         StartCoroutine(DelayedRebuild(chat));
 
