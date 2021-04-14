@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -109,12 +110,14 @@ public class StoryManager : MonoBehaviour
         if (text.Length > 0)
         {
             button.GetComponent<Button>().interactable = true;
-            button.GetComponentInChildren<Text>().text = text;
+            var teste = button.transform.GetChild(0).gameObject;
+            var teste2 = teste.GetComponent<TextMeshProUGUI>();
+            button.GetComponentInChildren<TextMeshProUGUI>().text = text;
         }
         else
         {
             button.GetComponent<Button>().interactable = false;
-            button.GetComponentInChildren<Text>().text = "";
+            button.GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
     }
 
@@ -132,7 +135,7 @@ public class StoryManager : MonoBehaviour
                     if (child.name == "TextPreview")
                     {
                         var previewText = text.Length >= 36 ? text.Substring(0, 36) + "..." : text;
-                        child.GetComponent<TextMesh>().text = previewText;
+                        child.gameObject.GetComponent<TextMeshProUGUI>().text = previewText;
                     }
                     else if (child.name == "BlueCircle" && chatMenu.selectedChat != thisCharacter)
                     {
@@ -148,7 +151,7 @@ public class StoryManager : MonoBehaviour
         button.GetComponent<Button>().interactable = interactable;
         if (!interactable)
         {
-            button.GetComponentInChildren<Text>().text = "";
+            button.GetComponentInChildren<TextMeshProUGUI>().text = "";
         }
     }
 
@@ -158,15 +161,17 @@ public class StoryManager : MonoBehaviour
         var chat = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity);
         chat.transform.parent = chatGrid.transform;
 
+
         var chatLine = speakerName.ToString() + ": " + storyBlock.pcText;
-        chat.transform.GetComponent<Text>().text = chatLine + '\n' + '\n';
-        chat.transform.GetChild(1).gameObject.transform.GetComponent<Text>().text = chatLine;
+        chat.gameObject.GetComponent<Text>().text = chatLine + '\n' + '\n';
+        chat.transform.GetChild(1).gameObject.gameObject.GetComponent<Text>().text = chatLine;
+
+        StartCoroutine(DelayedRebuild(chat));
 
         if (isPC)
         {
             PreviewText(storyBlock.pcText);
         }
-        StartCoroutine(DelayedRebuild(chat));
 
         InteractChoiseButton(c1, false);
         InteractChoiseButton(c2, false);

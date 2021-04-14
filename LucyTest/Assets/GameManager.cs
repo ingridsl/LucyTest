@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
         if (redCircle.activeSelf)
         {
             if (nonReadMessages > 0 ) {
-                redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
+                redCircle.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nonReadMessages.ToString();
             }
             else
             {
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         else
         {
             redCircle.SetActive(true);
-            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
+            redCircle.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nonReadMessages.ToString();
         }
     }
 
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         if (nonReadMessages > 0)
         {
             redCircle.SetActive(true);
-            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
+            redCircle.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nonReadMessages.ToString();
         }
         else
         {
