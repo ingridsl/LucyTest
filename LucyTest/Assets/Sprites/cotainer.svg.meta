@@ -39,17 +39,17 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: cotainerSprite
       originalName: 
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       alignment: 0
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 21, y: 23, z: 20, w: 23}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
+        width: 342
+        height: 46
       spriteID: 98aeb9e3d83c59047817049ea4656f61
       internalID: 0
     PhysicsOutlines: []
