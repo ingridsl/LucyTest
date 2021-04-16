@@ -163,7 +163,7 @@ public class StoryManager : MonoBehaviour
 
         yield return 0;
 
-        var chatLine = speakerName.ToString() + ": " + storyBlock.pcText;
+        var chatLine = speakerName.ToString() + ": " + (isPC ? storyBlock.pcText : storyBlock.userSelectedText);
         chat.gameObject.GetComponent<TextMeshProUGUI>().text = chatLine + '\n' + '\n';
         chat.transform.GetChild(1).gameObject.gameObject.GetComponent<TextMeshProUGUI>().text = chatLine;
 

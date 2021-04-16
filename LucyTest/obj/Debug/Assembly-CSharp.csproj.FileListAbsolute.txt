@@ -552,3 +552,11 @@ C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\obj\Debug\Assembly-CSharp
 C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\obj\Debug\Assembly-CSharp.pdb
 C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.2D.Sprite.Editor.dll
 C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.2D.Sprite.Editor.pdb
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.InternalAPIEditorBridge.003.dll
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.InternalAPIEngineBridge.003.dll
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.VectorGraphics.dll
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.VectorGraphics.Editor.dll
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.VectorGraphics.pdb
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.InternalAPIEditorBridge.003.pdb
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.VectorGraphics.Editor.pdb
+C:\Users\USER\Documents\Theory Games\LucyTest\LucyTest\Temp\Bin\Debug\Unity.InternalAPIEngineBridge.003.pdb

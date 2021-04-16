@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         if (redCircle.activeSelf)
         {
             if (nonReadMessages > 0 ) {
-                redCircle.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nonReadMessages.ToString();
+                redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
             }
             else
             {
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         else
         {
             redCircle.SetActive(true);
-            redCircle.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nonReadMessages.ToString();
+            redCircle.transform.GetChild(0).GetComponent<Text>().text = nonReadMessages.ToString();
         }
     }
 
